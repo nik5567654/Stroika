@@ -1,65 +1,54 @@
 <!doctype html>
-<html lang="ru">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#111827">
-<link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="icon-192.png">
-<title>Стройка</title>
+<html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111827"><link rel="manifest" href="manifest.json"><title>Стройка</title>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f3f4f6;color:#111827}
-header{position:sticky;top:0;z-index:5;background:#111827;color:#fff;padding:14px 16px calc(14px + env(safe-area-inset-top));font-size:20px;font-weight:700}
-main{padding:16px 16px 90px;max-width:900px;margin:auto}.card{background:#fff;border-radius:16px;padding:16px;margin-bottom:12px;box-shadow:0 1px 5px #00000012}
-h2{margin:0 0 12px;font-size:18px}.muted{color:#6b7280;font-size:13px}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.stat{font-size:24px;font-weight:800}.bar{height:10px;background:#e5e7eb;border-radius:10px;overflow:hidden}.fill{height:100%;background:#2563eb}
-button,input,select,textarea{font:inherit}button{border:0;border-radius:12px;padding:11px 14px;background:#2563eb;color:white;font-weight:600}button.secondary{background:#e5e7eb;color:#111827}button.danger{background:#dc2626}.row{display:flex;gap:8px;align-items:center;justify-content:space-between}.item{padding:12px 0;border-bottom:1px solid #eee}.item:last-child{border:0}.pill{display:inline-block;padding:4px 8px;border-radius:999px;background:#e5e7eb;font-size:12px}.fab{position:fixed;right:18px;bottom:76px;width:58px;height:58px;border-radius:50%;font-size:28px;padding:0;box-shadow:0 5px 20px #0003}
-nav{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #ddd;display:grid;grid-template-columns:repeat(5,1fr);padding:8px 4px calc(8px + env(safe-area-inset-bottom));z-index:5}nav button{background:none;color:#4b5563;padding:7px 2px;font-size:11px}nav button.active{color:#2563eb}
-.modal{position:fixed;inset:0;background:#0006;z-index:10;display:none;align-items:flex-end}.sheet{background:#fff;width:100%;border-radius:22px 22px 0 0;padding:18px;max-height:90vh;overflow:auto}.field{margin-bottom:10px}.field label{display:block;font-size:12px;color:#6b7280;margin-bottom:4px}.field input,.field select,.field textarea{width:100%;border:1px solid #d1d5db;border-radius:10px;padding:10px}.actions{display:flex;gap:8px;margin-top:14px}.actions button{flex:1}
-</style>
-</head>
-<body>
-<header>🏠 Стройка</header>
-<main id="app"></main>
-<button class="fab" onclick="openAdd()">＋</button>
-<nav id="nav"></nav>
-<div class="modal" id="modal"><div class="sheet" id="sheet"></div></div>
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f2f4f7;color:#111827}
+header{background:#111827;color:white;padding:18px 16px 20px;font-size:26px;font-weight:800;position:sticky;top:0;z-index:4}
+main{max-width:900px;margin:auto;padding:14px 14px 100px}.card{background:white;border-radius:18px;padding:16px;margin-bottom:12px;box-shadow:0 2px 10px #0000000d}
+h2{margin:0 0 12px;font-size:19px}.muted{color:#6b7280}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.stat{font-size:26px;font-weight:800}.bar{height:11px;background:#e5e7eb;border-radius:20px;overflow:hidden}.fill{height:100%;background:#2563eb}
+button{border:0;border-radius:12px;padding:10px 13px;background:#2563eb;color:white;font-weight:700}button.secondary{background:#e5e7eb;color:#111827}button.danger{background:#dc2626}
+.row{display:flex;justify-content:space-between;gap:8px;align-items:center}.item{padding:13px 0;border-bottom:1px solid #eee}.item:last-child{border:0}
+.pill{padding:4px 8px;border-radius:20px;background:#e5e7eb;font-size:12px}.section{display:grid;grid-template-columns:1fr 1fr;gap:9px}.section button{background:white;color:#111827;text-align:left;border:1px solid #e5e7eb;min-height:58px}
+.fab{position:fixed;right:18px;bottom:82px;width:58px;height:58px;border-radius:50%;font-size:29px;padding:0;box-shadow:0 5px 18px #0003;z-index:6}
+nav{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #ddd;display:grid;grid-template-columns:repeat(5,1fr);padding:6px 3px calc(7px + env(safe-area-inset-bottom));z-index:5}
+nav button{background:none;color:#6b7280;padding:6px 1px;font-size:11px}nav button.active{color:#2563eb}
+.modal{position:fixed;inset:0;background:#0007;display:none;align-items:flex-end;z-index:10}.sheet{background:white;width:100%;border-radius:22px 22px 0 0;padding:18px;max-height:90vh;overflow:auto}.field{margin-bottom:10px}.field label{display:block;font-size:12px;color:#6b7280;margin-bottom:4px}.field input,.field select,.field textarea{width:100%;border:1px solid #d1d5db;border-radius:10px;padding:10px;font:inherit}.actions{display:flex;gap:8px;margin-top:14px}.actions button{flex:1}
+</style></head><body>
+<header>🏠 Стройка</header><main id="app"></main><button class="fab" onclick="addWork()">＋</button>
+<nav id="nav"></nav><div class="modal" id="modal"><div class="sheet" id="sheet"></div></div>
 <script>
-const KEY="stroika_pwa_v1";
-let db=JSON.parse(localStorage.getItem(KEY)||'{"works":[],"materials":[],"expenses":[],"journal":[]}');
-let page="home";
+const KEY="stroika_v2"; let db=JSON.parse(localStorage.getItem(KEY)||'{"works":[],"expenses":[],"journal":[],"materials":[]}');let page="home";
 const sections=["Фундамент","Стены","Кровля","Отопление","Электрика","Водоснабжение","Канализация","Тёплый пол","Вентиляция","Кондиционирование","Санузел","Полы","Двери","Освещение","Умный дом","Прачечная","Отделка","Участок"];
 const rooms=["Прихожая","Коридор","Кухня","Гостиная","Спальня","Детская 1","Детская 2","Душевая","Санузел","Прачечная","Котельная","Техническое помещение","Участок"];
 const statuses=["Запланировано","В работе","Завершено","Приостановлено"];
-const workers=["Я","Бригада","Подрядчик"];
 function save(){localStorage.setItem(KEY,JSON.stringify(db));render()}
-function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]))}
-function nav(){document.getElementById("nav").innerHTML=[["home","Главная","⌂"],["works","Работы","✓"],["schedule","График","▣"],["money","Расходы","₽"],["journal","Журнал","☷"]].map(x=>`<button class="${page==x[0]?'active':''}" onclick="page='${x[0]}';render()">${x[2]}<br>${x[1]}</button>`).join("")}
-function render(){nav();let a=document.getElementById("app");if(page==="home")home(a);if(page==="works")works(a);if(page==="schedule")schedule(a);if(page==="money")money(a);if(page==="journal")journal(a)}
+function e(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]))}
+function nav(){navEl().innerHTML=[["home","Главная","⌂"],["works","Работы","✓"],["schedule","График","▣"],["money","Финансы","₽"],["journal","Журнал","☷"]].map(x=>`<button class="${page==x[0]?'active':''}" onclick="page='${x[0]}';render()">${x[2]}<br>${x[1]}</button>`).join("")}
+function navEl(){return document.getElementById("nav")}
+function render(){nav();let a=document.getElementById("app");({home,works,schedule,money,journal}[page])(a)}
 function home(a){
- let total=db.works.length, done=db.works.filter(x=>x.status==="Завершено").length, pct=total?Math.round(done/total*100):0, exp=db.expenses.reduce((s,x)=>s+Number(x.amount||0),0);
- a.innerHTML=`<div class="card"><h2>Прогресс строительства</h2><div class="row"><span class="stat">${pct}%</span><span class="muted">${done} из ${total} работ</span></div><div class="bar"><div class="fill" style="width:${pct}%"></div></div></div>
- <div class="grid"><div class="card"><div class="muted">В работе</div><div class="stat">${db.works.filter(x=>x.status==="В работе").length}</div></div><div class="card"><div class="muted">Расходы</div><div class="stat">${exp.toLocaleString("ru-RU")} ₽</div></div></div>
- <div class="card"><h2>Ближайшие работы</h2>${db.works.filter(x=>x.status!=="Завершено").sort((a,b)=>(a.start_date||"").localeCompare(b.start_date||"")).slice(0,5).map(workRow).join("")||'<div class="muted">Пока нет работ</div>'}</div>`;
+let done=db.works.filter(x=>x.status==="Завершено").length,total=db.works.length,p=total?Math.round(done/total*100):0,exp=db.expenses.reduce((s,x)=>s+Number(x.amount||0),0);
+a.innerHTML=`<div class="card"><h2>Дом 112 м²</h2><div class="row"><div class="stat">${p}%</div><div class="muted">${done} из ${total} работ</div></div><div class="bar"><div class="fill" style="width:${p}%"></div></div></div>
+<div class="grid"><div class="card"><div class="muted">В работе</div><div class="stat">${db.works.filter(x=>x.status==="В работе").length}</div></div><div class="card"><div class="muted">Расходы</div><div class="stat">${exp.toLocaleString("ru-RU")} ₽</div></div></div>
+<div class="card"><h2>Разделы строительства</h2><div class="section">${sections.map(s=>`<button onclick="filterSection('${s}')"><b>${s}</b><br><span class="muted">${db.works.filter(x=>x.section===s).length} работ</span></button>`).join("")}</div></div>
+<div class="card"><h2>Ближайшие работы</h2>${db.works.filter(x=>x.status!=="Завершено").sort((a,b)=>(a.start||"9999").localeCompare(b.start||"9999")).slice(0,5).map(workRow).join("")||'<span class="muted">Добавь первую работу кнопкой +</span>'}</div>`
 }
-function workRow(x){return `<div class="item"><div class="row"><b>${esc(x.name)}</b><span class="pill">${esc(x.status)}</span></div><div class="muted">${esc(x.section||"")} · ${esc(x.room||"")} ${x.start_date?"· "+x.start_date:""}</div></div>`}
-function works(a){a.innerHTML=`<div class="card"><div class="row"><h2>Работы</h2><button onclick="openAdd()">Добавить</button></div>${db.works.map((x,i)=>`<div class="item">${workRow(x)}<div class="actions"><button class="secondary" onclick="editWork(${i})">Изменить</button><button class="danger" onclick="delWork(${i})">Удалить</button></div></div>`).join("")||'<div class="muted">Добавь первую работу</div>'}</div>`}
-function schedule(a){let arr=[...db.works].sort((x,y)=>(x.start_date||"9999").localeCompare(y.start_date||"9999"));a.innerHTML=`<div class="card"><h2>График</h2>${arr.map(x=>`<div class="item"><div class="row"><b>${esc(x.name)}</b><span>${esc(x.start_date||"—")}</span></div><div class="muted">${esc(x.end_date||"")} · ${esc(x.section||"")}</div></div>`).join("")||'<div class="muted">Нет запланированных работ</div>'}</div>`}
-function money(a){let total=db.expenses.reduce((s,x)=>s+Number(x.amount||0),0);a.innerHTML=`<div class="card"><div class="row"><h2>Расходы</h2><button onclick="openExpense()">Добавить</button></div><div class="stat">${total.toLocaleString("ru-RU")} ₽</div>${db.expenses.map((x,i)=>`<div class="item"><div class="row"><b>${esc(x.name)}</b><b>${Number(x.amount||0).toLocaleString("ru-RU")} ₽</b></div><div class="muted">${esc(x.category)} · ${esc(x.date||"")}</div></div>`).join("")}</div>`}
-function journal(a){a.innerHTML=`<div class="card"><div class="row"><h2>Журнал</h2><button onclick="openJournal()">Запись</button></div>${db.journal.map(x=>`<div class="item"><b>${esc(x.date)}</b><div>${esc(x.note)}</div>${x.photo?`<div class="muted">📷 Фото: ${esc(x.photo)}</div>`:""}</div>`).join("")||'<div class="muted">Записей пока нет</div>'}</div>`}
-function openAdd(i=null){let x=i==null?{}:db.works[i];document.getElementById("sheet").innerHTML=`<h2>${i==null?"Новая работа":"Изменить работу"}</h2>
- ${field("Название","name",x.name||"")} ${select("Раздел","section",sections,x.section)} ${select("Помещение","room",rooms,x.room)} ${select("Статус","status",statuses,x.status||"Запланировано")} ${select("Исполнитель","worker",workers,x.worker||"Я")}
- ${field("Начало","start_date",x.start_date||"","date")} ${field("Окончание","end_date",x.end_date||"","date")} ${field("Стоимость","cost",x.cost||"","number")} ${field("Примечание","note",x.note||"","text","textarea")}
- <div class="actions"><button class="secondary" onclick="closeModal()">Отмена</button><button onclick="saveWork(${i===null?-1:i})">Сохранить</button></div>`;showModal()}
-function field(label,n,v,type="text",tag="input"){return `<div class="field"><label>${label}</label>${tag==="textarea"?`<textarea id="f_${n}" rows="3">${esc(v)}</textarea>`:`<input id="f_${n}" type="${type}" value="${esc(v)}">`}</div>`}
-function select(label,n,opts,v){return `<div class="field"><label>${label}</label><select id="f_${n}">${opts.map(o=>`<option ${o===v?"selected":""}>${esc(o)}</option>`).join("")}</select></div>`}
-function saveWork(i){let x={name:v("name"),section:v("section"),room:v("room"),status:v("status"),worker:v("worker"),start_date:v("start_date"),end_date:v("end_date"),cost:Number(v("cost")||0),note:v("note")};if(!x.name)return alert("Укажи название");if(i<0)db.works.push(x);else db.works[i]=x;closeModal();save()}
-function editWork(i){openAdd(i)} function delWork(i){if(confirm("Удалить работу?")){db.works.splice(i,1);save()}}
-function openExpense(){document.getElementById("sheet").innerHTML=`<h2>Новый расход</h2>${field("Дата","date",new Date().toISOString().slice(0,10),"date")}${field("Категория","category","Материалы")}${field("Название","name","")}${field("Сумма","amount","","number")}${field("Комментарий","note","")}<div class="actions"><button class="secondary" onclick="closeModal()">Отмена</button><button onclick="saveExpense()">Сохранить</button></div>`;showModal()}
-function saveExpense(){let x={date:v("date"),category:v("category"),name:v("name"),amount:Number(v("amount")||0),note:v("note")};if(!x.name)return alert("Укажи название");db.expenses.push(x);closeModal();save()}
-function openJournal(){document.getElementById("sheet").innerHTML=`<h2>Запись в журнал</h2>${field("Дата","date",new Date().toISOString().slice(0,10),"date")}${field("Что сделано","note","", "text","textarea")}${field("Фото","photo","","file")}<div class="actions"><button class="secondary" onclick="closeModal()">Отмена</button><button onclick="saveJournal()">Сохранить</button></div>`;showModal()}
-function saveJournal(){let x={date:v("date"),note:v("note"),photo:document.getElementById("f_photo").files[0]?.name||""};if(!x.note)return alert("Добавь описание");db.journal.push(x);closeModal();save()}
-function v(n){return document.getElementById("f_"+n).value} function showModal(){document.getElementById("modal").style.display="flex"} function closeModal(){document.getElementById("modal").style.display="none"}
-if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(()=>{});
-render();
-</script>
-</body></html>
+function workRow(x){return `<div class="item"><div class="row"><b>${e(x.name)}</b><span class="pill">${e(x.status)}</span></div><div class="muted">${e(x.section)} · ${e(x.room||"")} ${x.start?"· "+x.start:""}</div></div>`}
+function works(a){a.innerHTML=`<div class="card"><div class="row"><h2>Все работы</h2><button onclick="addWork()">Добавить</button></div>${db.works.map((x,i)=>`<div class="item">${workRow(x)}<div class="actions"><button class="secondary" onclick="editWork(${i})">Изменить</button> <button class="danger" onclick="delWork(${i})">Удалить</button></div></div>`).join("")||'<span class="muted">Работ пока нет</span>'}</div>`}
+function filterSection(s){page="works";render();setTimeout(()=>alert("Раздел: "+s+" — здесь можно добавлять и редактировать работы."),50)}
+function schedule(a){let arr=[...db.works].sort((x,y)=>(x.start||"9999").localeCompare(y.start||"9999"));a.innerHTML=`<div class="card"><h2>График строительства</h2>${arr.map(x=>`<div class="item"><div class="row"><b>${e(x.name)}</b><span>${e(x.start||"—")}</span></div><div class="muted">${e(x.end||"")} · ${e(x.section)}</div></div>`).join("")||'<span class="muted">Добавь работы с датами — они появятся здесь.</span>'}</div>`}
+function money(a){let t=db.expenses.reduce((s,x)=>s+Number(x.amount||0),0);a.innerHTML=`<div class="card"><div class="row"><h2>Финансы</h2><button onclick="addExpense()">Добавить</button></div><div class="stat">${t.toLocaleString("ru-RU")} ₽</div>${db.expenses.map(x=>`<div class="item"><div class="row"><b>${e(x.name)}</b><b>${Number(x.amount||0).toLocaleString("ru-RU")} ₽</b></div><div class="muted">${e(x.category)} · ${e(x.date)}</div></div>`).join("")||'<span class="muted">Расходов пока нет</span>'}</div>`}
+function journal(a){a.innerHTML=`<div class="card"><div class="row"><h2>Журнал объекта</h2><button onclick="addJournal()">Запись</button></div>${db.journal.map(x=>`<div class="item"><b>${e(x.date)}</b><div>${e(x.note)}</div>${x.photo?`<div class="muted">📷 ${e(x.photo)}</div>`:""}</div>`).join("")||'<span class="muted">Здесь будут фото и записи по объекту.</span>'}</div>`}
+function field(label,n,v="",type="text",tag="input"){return `<div class="field"><label>${label}</label>${tag==="textarea"?`<textarea id="f_${n}" rows="3">${e(v)}</textarea>`:`<input id="f_${n}" type="${type}" value="${e(v)}">`}</div>`}
+function select(label,n,opts,v){return `<div class="field"><label>${label}</label><select id="f_${n}">${opts.map(o=>`<option ${o===v?"selected":""}>${e(o)}</option>`).join("")}</select></div>`}
+function addWork(i=null){let x=i==null?{}:db.works[i];sheet.innerHTML=`<h2>${i==null?"Новая работа":"Изменение"}</h2>${field("Название","name",x.name)}${select("Раздел","section",sections,x.section)}${select("Помещение","room",rooms,x.room)}${select("Статус","status",statuses,x.status||"Запланировано")}${field("Начало","start",x.start,"date")}${field("Окончание","end",x.end,"date")}${field("Стоимость","cost",x.cost||0,"number")}${field("Комментарий","note",x.note,"text","textarea")}<div class="actions"><button class="secondary" onclick="closeM()">Отмена</button><button onclick="saveWork(${i==null?-1:i})">Сохранить</button></div>`;openM()}
+function saveWork(i){let x={name:v("name"),section:v("section"),room:v("room"),status:v("status"),start:v("start"),end:v("end"),cost:Number(v("cost")||0),note:v("note")};if(!x.name)return alert("Укажи название");i<0?db.works.push(x):db.works[i]=x;closeM();save()}
+function editWork(i){addWork(i)}function delWork(i){if(confirm("Удалить работу?")){db.works.splice(i,1);save()}}
+function addExpense(){sheet.innerHTML=`<h2>Новый расход</h2>${field("Дата","date",new Date().toISOString().slice(0,10),"date")}${field("Категория","category","Материалы")}${field("Название","name")}${field("Сумма","amount",0,"number")}${field("Комментарий","note")}<div class="actions"><button class="secondary" onclick="closeM()">Отмена</button><button onclick="saveExpense()">Сохранить</button></div>`;openM()}
+function saveExpense(){let x={date:v("date"),category:v("category"),name:v("name"),amount:Number(v("amount")||0),note:v("note")};if(!x.name)return alert("Укажи название");db.expenses.push(x);closeM();save()}
+function addJournal(){sheet.innerHTML=`<h2>Запись в журнал</h2>${field("Дата","date",new Date().toISOString().slice(0,10),"date")}${field("Что сделано","note","","text","textarea")}${field("Фото","photo","","file")}<div class="actions"><button class="secondary" onclick="closeM()">Отмена</button><button onclick="saveJournal()">Сохранить</button></div>`;openM()}
+function saveJournal(){let x={date:v("date"),note:v("note"),photo:document.getElementById("f_photo").files[0]?.name||""};if(!x.note)return alert("Напиши, что сделано");db.journal.push(x);closeM();save()}
+function v(n){return document.getElementById("f_"+n).value}function openM(){modal.style.display="flex"}function closeM(){modal.style.display="none"}
+const modal=document.getElementById("modal"),sheet=document.getElementById("sheet");render();
+</script></body></html>

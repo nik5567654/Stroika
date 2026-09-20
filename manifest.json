@@ -1,9 +1,1 @@
-{
-  "name":"Стройка",
-  "short_name":"Стройка",
-  "start_url":"./",
-  "display":"standalone",
-  "background_color":"#f3f4f6",
-  "theme_color":"#111827",
-  "lang":"ru"
-}
+{"name":"Стройка","short_name":"Стройка","start_url":"./","display":"standalone","background_color":"#f2f4f7","theme_color":"#111827","lang":"ru"}
